@@ -1,8 +1,7 @@
 import numpy as np
 from math import *
-from SSV_inputs import *
 
-#Inputs:
+'''Inputs:
 P = 9.17                #kN
 q = 4.53                #kN
 Pjamy = 1.0             #kN
@@ -19,7 +18,10 @@ I = 1.0                 #m^4
 la = 2.771              #m
 d1 = 0.1103             #m
 d3 = 16.42              #m
-
+'''
+P = 9.17                #kN
+q = 4.53                #kN
+theta = radians(26)     #rad
 #------------------------------------------#
 qy = q*np.cos(theta)
 Py = P*np.cos(theta)
@@ -33,7 +35,7 @@ Py = P*np.cos(theta)
 # the variable x is different for v1 and v3
 
 # Deflection 
-x = x2
+#x = x2
 def deflect(x):
     v1 = (1./(E*I))*((1./(24.))*qy*x**4+(1./6.)*FH2y*(x)**3+(1./6.)*Pjamy*(x-0.5*xa)**3+(1./6.)*FH1y*(x-x1)**3)
     return v1
