@@ -1,8 +1,6 @@
 import numpy as np
 from math import *
-
-
-
+from SSV_inputs import *
 
 #Inputs:
 P = 9.17                #kN
