@@ -1,6 +1,6 @@
 import numpy as np
 from math import *
-from SVV_inputs import *
+from SSV_inputs import *
 
 #Inputs:
 P = 9.17                #kN
@@ -32,12 +32,10 @@ Py = P*np.cos(theta)
 
 # the variable x is different for v1 and v3
 
-# Deflection 1
+# Deflection 
 x = x2
-v1 = (1./(E*I))*((1./(24.))*qy*x**4+(1./6.)*FH2y*(x)**3+(1./6.)*Pjamy*(x-0.5*xa)**3+(1./6.)*FH1y*(x-x1)**3)
-print v1
+def deflect(x):
+    v1 = (1./(E*I))*((1./(24.))*qy*x**4+(1./6.)*FH2y*(x)**3+(1./6.)*Pjamy*(x-0.5*xa)**3+(1./6.)*FH1y*(x-x1)**3)
+    return v1
 
-# Deflection 3
-x = la - x2
-v3 = (1./(E*I))*((1./(24.))*qy*x**4+(1./6.)*FH2y*(x)**3 + (1./6.)*Py*(x-0.5*xa)**3+(1./6.)*FH1y*(x-(x3-x2))**3)
-print v3
+
