@@ -14,3 +14,4 @@ d_3 = 164.2         #mm, vertical displacement hinge 2
 theta = 26          #deg, maximum upward defelction
 P = 9.17*10**3      #N, load in actuator 2
 q = 4.53*10**3      #N, net aerodynamic load
+E = 73.1*10**9      #Pa, modulus of elasticity
