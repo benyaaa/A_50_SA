@@ -1,7 +1,4 @@
-from math import *
-import scipy as np
-from SVV_main import *
-from numpy.linalg import inv
+from SVV_input import *
 I_zz = 1.0
 
 # M*x=u
