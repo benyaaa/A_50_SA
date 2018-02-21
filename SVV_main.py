@@ -1,4 +1,6 @@
 from math import *
+import scipy as np
+from numpy.linalg import inv
 
 C_a = 0.547*10**3    #mm, chord length aileron
 l_a = 2.771*10**3    #mm, span of the aileron
