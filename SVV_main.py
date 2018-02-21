@@ -20,3 +20,5 @@ theta = radians(26) #rad, maximum upward defelction
 P = 9.17*10**3      #N, load in actuator 2
 q = 4.53            #N/mm, net aerodynamic load
 E = 73.1*10**9      #Pa, modulus of elasticity
+
+Q = int(0)          # number of skin booms (extra booms placed between the stringer booms to increase acc)

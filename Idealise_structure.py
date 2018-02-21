@@ -1,7 +1,18 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Feb 21 09:25:27 2018
+from SVV_main import *
+import scipy as np
 
-@author: timna
-"""
 
+booms = n_st+2+(Q*20)
+
+M_booms = np.zeros((booms, 4))
+
+for i in range(M_booms.shape[0]):
+    
+    
+    
+
+    
+    
+    
+    
+#M_booms = matrix_coordinates_and_areas_booms
