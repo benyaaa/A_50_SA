@@ -1,7 +1,10 @@
-from anal_test import *
+from anal_deflection import *
 from SVV_input import *
+from centroid_MOI import *
 
+print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 
+<<<<<<< HEAD
 
 C_a = 0.547*10**3    #mm, chord length aileron
 l_a = 2.771*10**3    #mm, span of the aileron
@@ -30,3 +33,5 @@ E = 73.1*10**3      #N/mm^2, modulus of elasticity
 
 print deflect(8)
 >>>>>>> 2feb12ed580e9181f240ce797fcf8d7196ab173c
+=======
+>>>>>>> c33b3c3b67cc71861701619ba30609253c1983f7

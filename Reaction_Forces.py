@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-from SVV_main import *
-I_zz = 0.1
-=======
 from SVV_input import *
 I_zz = 1.0
->>>>>>> 6a187ffe5cc27111f52f985aa1a93a4bbe537e7b
+I_zz = 0.1
 
 # M*x=u
 # M is an 8x8 matrix with all the coefficients
@@ -20,8 +16,8 @@ m2 = np.mat([0,0,0,1.,1.,cos(theta),0,0])
 u2 = np.mat([P*cos(theta)-q*l_a*sin(theta)])
 
 # Eq 3: Moment equilibrium x-axis
-m3 = np.mat([0,0,0,0,0,(h_a/2.)*cos(theta)-(h_a/2.)*sin(theta),0,0])
-u3 = np.mat([P*(h_a/2)*cos(theta)-P*(h_a/2)*sin(theta)+q*l_a*cos(theta)*(0.25*C_a-(h_a/2.))])
+m3 = np.mat([0,0,0,0,0,(h/2.)*cos(theta)-(h/2.)*sin(theta),0,0])
+u3 = np.mat([P*(h/2)*cos(theta)-P*(h/2)*sin(theta)+q*l_a*cos(theta)*(0.25*C_a-(h/2.))])
 
 # Eq 4: Moment equilibrium y-axis
 m4 = np.mat([0,0,0,(x_2-x_1),0,(x_a/2.)*cos(theta),0,0])
@@ -49,8 +45,7 @@ u = np.concatenate((u1,u2,u3,u4,u5,u6,u7,u8))
 
 X = inv(M)*u
 
-<<<<<<< HEAD
-=======
+
 
 F_H1_y = X[0][0]
 print float(F_H1_y)
@@ -58,7 +53,7 @@ print float(F_H1_y)
 
 
 
->>>>>>> 6a187ffe5cc27111f52f985aa1a93a4bbe537e7b
+
 F_H1_y = float(X[0])
 F_H2_y = float(X[1])
 F_H3_y = float(X[2])
@@ -76,9 +71,4 @@ print 'F_H2_z =', float(X[4])
 print 'P_jam  =', float(X[5])
 print 'C      =', float(X[6])
 print 'L      =', float(X[7])
-<<<<<<< HEAD
-=======
-
->>>>>>> 6a187ffe5cc27111f52f985aa1a93a4bbe537e7b
-
 
