@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 from SVV_main import *
 I_zz = 0.1
+=======
+from SVV_input import *
+I_zz = 1.0
+>>>>>>> 6a187ffe5cc27111f52f985aa1a93a4bbe537e7b
 
 # M*x=u
 # M is an 8x8 matrix with all the coefficients
@@ -44,6 +49,16 @@ u = np.concatenate((u1,u2,u3,u4,u5,u6,u7,u8))
 
 X = inv(M)*u
 
+<<<<<<< HEAD
+=======
+
+F_H1_y = X[0][0]
+print float(F_H1_y)
+
+
+
+
+>>>>>>> 6a187ffe5cc27111f52f985aa1a93a4bbe537e7b
 F_H1_y = float(X[0])
 F_H2_y = float(X[1])
 F_H3_y = float(X[2])
@@ -61,5 +76,9 @@ print 'F_H2_z =', float(X[4])
 print 'P_jam  =', float(X[5])
 print 'C      =', float(X[6])
 print 'L      =', float(X[7])
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6a187ffe5cc27111f52f985aa1a93a4bbe537e7b
 
 
