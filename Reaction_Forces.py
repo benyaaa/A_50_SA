@@ -65,4 +65,5 @@ print 'F_H2_z =', float(X[4])
 print 'P_jam  =', float(X[5])
 print 'C      =', float(X[6])
 print 'L      =', float(X[7])
+print 'Deflection = ,', (L/(E*I_zz))/cos(theta) # in gloval cooridinate system
 
