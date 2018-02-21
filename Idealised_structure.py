@@ -73,6 +73,11 @@ M_booms[0][booms-1-Q]=1
 
 M_booms[booms-1][0]=0
 M_booms[booms-Q][booms-Q-1]=0
+
+N_spar_boom_top = 6 + Q * 6
+N_spar_boom_top = 12 + Q * 12
+
+
         
 """      
 if Q > 0:
