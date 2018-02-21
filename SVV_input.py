@@ -1,7 +1,6 @@
-from anal_test import *
-from SVV_input import *
-
-
+from math import *
+import scipy as np
+from numpy.linalg import inv
 
 C_a = 0.547*10**3    #mm, chord length aileron
 l_a = 2.771*10**3    #mm, span of the aileron
@@ -19,13 +18,5 @@ d_1 = 110.3          #mm, vertical displacement hinge 1
 d_3 = 164.2          #mm, vertical displacement hinge 2
 theta = radians(26) #rad, maximum upward defelction
 P = 9.17*10**3      #N, load in actuator 2
-q = 4.53            #N/mm, net aerodynamic load
-<<<<<<< HEAD
-E = 73.1*10**9      #Pa, modulus of elasticity
-Q = 0               # Q = 0,1,3,7,15,31,63,127,255,511 Extra elements between booms
-=======
+q = 4.53            #N, net aerodynamic load
 E = 73.1*10**3      #N/mm^2, modulus of elasticity
-
-
-print deflect(8)
->>>>>>> 2feb12ed580e9181f240ce797fcf8d7196ab173c
