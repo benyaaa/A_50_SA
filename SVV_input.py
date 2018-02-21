@@ -14,7 +14,14 @@ w_st = 20            #mm, width of stiffener
 n_st = 17            #-, number of stiffeners equally spaced along cross-section
 d_1 = 110.3          #mm, vertical displacement hinge 1
 d_3 = 164.2          #mm, vertical displacement hinge 2
+<<<<<<< HEAD
 theta = radians(26)  #rad, maximum upward defelction
 P = 9.17*10**3       #N, load in actuator 2
 q = 4.53             #N, net aerodynamic load
 E = 73.1*10**3       #N/mm^2, modulus of elasticity
+=======
+theta = radians(26) #rad, maximum upward defelction
+P = 9.17*10**3      #N, load in actuator 2
+q = 4.53            #N, net aerodynamic load
+E = 73.1*10**3      #N/mm^2, modulus of elasticity
+>>>>>>> 3679bf4945df5e3d29c59470b4839ace49dc363d
