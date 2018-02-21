@@ -26,7 +26,6 @@ m3 = np.mat([0,0,0,0,0,(h_a/2.)*cos(theta)-(h_a/2.)*sin(theta),0,0])
 u3 = np.mat([P*(h_a/2)*cos(theta)-P*(h_a/2)*sin(theta)+q*l_a*cos(theta)*(0.25*C_a-(h_a/2.))])
 
 # Eq 4: Moment equilibrium y-axis
-#u4 = np.mat([q*l_a*sin(theta)*
 m4 = np.mat([0,0,0,(x_2-x_1),0,(x_a/2.)*cos(theta),0,0])
 u4 = np.mat([q*l_a*sin(theta)*((l_a/2.)-x_2)-P*cos(theta)*(x_a/2.)])
 
