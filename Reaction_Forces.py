@@ -49,4 +49,12 @@ u8 = np.mat([(1./24.)*q*x_3**4 - P*sin(theta)*(x_3-(x_2+(x_a/2)))**3+d_3*cos(the
 M = np.concatenate((m1,m2,m3,m4,m5,m6,m7,m8))
 u = np.concatenate((u1,u2,u3,u4,u5,u6,u7,u8))
 
-print inv(M)*u
+X = inv(M)*u
+
+F_H1_y = X[0][0]
+print float(F_H1_y)
+
+
+
+
+
