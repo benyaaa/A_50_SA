@@ -4,7 +4,6 @@ from centroid_MOI import *
 
 print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 
-<<<<<<< HEAD
 
 C_a = 0.547*10**3    #mm, chord length aileron
 l_a = 2.771*10**3    #mm, span of the aileron
@@ -23,22 +22,15 @@ d_3 = 164.2          #mm, vertical displacement hinge 2
 theta = radians(26) #rad, maximum upward defelction
 P = 9.17*10**3      #N, load in actuator 2
 q = 4.53            #N/mm, net aerodynamic load
-<<<<<<< HEAD
+
 E = 73.1*10**9      #Pa, modulus of elasticity
-<<<<<<< HEAD
-Q = 0               # Q = 0,1,3,7,15,31,63,127,255,511 Extra elements between booms
-=======
+
+Q = 3               # Q = 0,1,3,7,15,31,63,127,255,511 Extra elements between booms
+
 
 Q = int(0)          # number of skin booms (extra booms placed between the stringer booms to increase acc)
->>>>>>> 57391d052d391a103299cb1e5ee208bacd706398
-=======
+
 E = 73.1*10**3      #N/mm^2, modulus of elasticity
 
 
 print deflect(8)
->>>>>>> 2feb12ed580e9181f240ce797fcf8d7196ab173c
-<<<<<<< HEAD
-=======
-=======
->>>>>>> c33b3c3b67cc71861701619ba30609253c1983f7
->>>>>>> 57391d052d391a103299cb1e5ee208bacd706398
