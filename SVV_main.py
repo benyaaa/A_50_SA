@@ -4,4 +4,4 @@ from centroid_MOI import *
 
 print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 
-print deflect(8)
+print deflect(l_a)
