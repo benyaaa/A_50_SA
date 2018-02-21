@@ -3,6 +3,7 @@ from SVV_input import *
 from centroid_MOI import *
 
 print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
+<<<<<<< HEAD
 
 
 C_a = 0.547*10**3    #mm, chord length aileron
@@ -34,3 +35,5 @@ E = 73.1*10**3      #N/mm^2, modulus of elasticity
 
 
 print deflect(8)
+=======
+>>>>>>> c467d1331f6ab8b98675a305bd236f92056ad802
