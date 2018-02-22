@@ -30,11 +30,11 @@ def deflect(x):
         v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*cos(theta)*(x-x_1)**3 - (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2.)))**3 + (1./6.)*F_H2_y*cos(theta)*(x-x_2)**3 + (1./6.)*P*sin(theta)*(x-(x_2+(x_a/2.)))**3 + C*x + L
     elif x > x_3 and x <= l_a:
         v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*cos(theta)*(x-x_1)**3 - (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2)))**3 + (1./6.)*F_H2_y*cos(theta)*(x-x_2)**3 + (1./6.)*P*sin(theta)*(x-(x_2+(x_a/2.)))**3 + 1./2.*F_H3_y*cos(theta)*(x-x_3)**3 + C*x + L        
-    return v/(E*I_zz)
+    return v/(E*I_zz*cos(theta)) # divide by cos(theta) to obtain the deflection in the global system
  
 
 print deflect(x_2)
 
-#def deflectplot():
-    #for i in range(0,int(l_a),int(l_a)/100 + 1):
+def deflectplot():
+    for i in range(0,int(l_a),int(l_a)/100 + 1):
         
