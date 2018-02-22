@@ -3,7 +3,6 @@ from SVV_input import *
 from centroid_MOI import *
 
 print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
-<<<<<<< HEAD
 
 
 C_a = 0.547*10**3    #mm, chord length aileron
@@ -12,7 +11,7 @@ x_1 = 0.153*10**3    #mm, x-location of hinge 1
 x_2 = 1.281*10**3    #mm, x-location of hinge 2
 x_3 = 2.681*10**3    #mm, x-location of hinge 3
 x_a = 280            #mm, distance between actuators 1 and 2
-h_a = 225            #mm, aileron height
+h = 225            #mm, aileron height
 t_sk = 1.1           #mm, skin thickness
 t_sp = 2.9           #mm, spar thickness
 h_st = 1.5           #mm, height of stiffener
@@ -35,5 +34,3 @@ E = 73.1*10**3      #N/mm^2, modulus of elasticity
 
 
 print deflect(8)
-=======
->>>>>>> c467d1331f6ab8b98675a305bd236f92056ad802
