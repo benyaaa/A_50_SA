@@ -21,16 +21,18 @@ def deflect(x):
     if x >= 0 and x <= x_1:
         v = (-1./24.)*(q*cos(theta))*x**4 + C*x + L
     elif x > x_1 and x <= (x_2-(x_a/2.)):
-        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*cos(theta)*(x-x_1)**3 + C*x + L
+        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*(x-x_1)**3 + C*x + L
     elif x > (x_2-(x_a/2.)) and x <= x_2:
-        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*cos(theta)*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2.)))**3 + C*x + L
+        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2.)))**3 + C*x + L
     elif x > x_2 and x <= (x_2+(x_a/2.)):
-        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*cos(theta)*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2.)))**3 + (1./6.)*F_H2_y*cos(theta)*(x-x_2)**3 + C*x +L
+        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2.)))**3 + (1./6.)*F_H2_y*(x-x_2)**3 + C*x +L
     elif x > (x_2+(x_a/2.)) and x <= x_3:
-        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*cos(theta)*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2.)))**3 + (1./6.)*F_H2_y*cos(theta)*(x-x_2)**3 - (1./6.)*P*sin(theta)*(x-(x_2+(x_a/2.)))**3 + C*x + L
+        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2.)))**3 + (1./6.)*F_H2_y*(x-x_2)**3 - (1./6.)*P*sin(theta)*(x-(x_2+(x_a/2.)))**3 + C*x + L
     elif x > x_3 and x <= l_a:
-        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*cos(theta)*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2)))**3 + (1./6.)*F_H2_y*cos(theta)*(x-x_2)**3 - (1./6.)*P*sin(theta)*(x-(x_2+(x_a/2.)))**3 + 1./2.*F_H3_y*cos(theta)*(x-x_3)**3 + C*x + L        
-    return v/(E*I_zz*cos(theta)) # divide by cos(theta) to obtain the deflection in the global system
+        v = (-1./24.)*(q*cos(theta))*x**4 + (1./6.)*F_H1_y*(x-x_1)**3 + (1./6.)*P_jam*sin(theta)*(x-(x_2-(x_a/2)))**3 + (1./6.)*F_H2_y*(x-x_2)**3 - (1./6.)*P*sin(theta)*(x-(x_2+(x_a/2.)))**3 + 1./2.*F_H3_y*(x-x_3)**3 + C*x + L        
+    return v/(E*I_zz) 
+
+# the deflection in hinge 2 should be zero, but is rightn now 5 mm
  
 print deflect(x_2)
 
