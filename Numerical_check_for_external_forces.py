@@ -8,17 +8,21 @@ from anal_deflection import *
 from SVV_input import *
 from centroid_MOI import *
 from Idealised_structure2 import *
+from Slicing import *
+import matplotlib.pyplot as plt
 
-def NumericalExternalForces(CentroidAirfoil, N, matrix_max, F_H1_z, F_H1_y, P_jam, F_H2_z, F_H2_y, P, F_H3_y, C_a, h, q):
+def NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H2_z, F_H2_y, P, F_H3_y, C_a, h, q):
+    matrix_max = slicing(x_1,x_2,x_3,x_a,l_a)[0]
+    N = slicing(x_1,x_2,x_3,x_a,l_a)[1]
+    Zeros = (N + 1, 6)
+    matrix_zero = np.zeros(Zeros)
     
-    matrix_zero = np.zeros([N][6])
-    
-    matrix_slice = hstack(matrix_max, matrix_zero)
+    matrix_slice = np.hstack((matrix_max, matrix_zero))
     
     slice_number = 0
     beginning = 1
     end	= 2
-    tickness	= 3
+    thickness	= 3
     rib_flag = 4
     hinge_flag = 5
     F_z_slice = 6
@@ -65,10 +69,11 @@ def NumericalExternalForces(CentroidAirfoil, N, matrix_max, F_H1_z, F_H1_y, P_ja
         # adding forces in the ribs and form hinge 2
         if matrix_slice[i][rib_flag] == 1 or matrix_slice[i][hinge_flag] == 1:
             matrix_slice[i][F_z_slice] = matrix_slice[i][F_z_slice] + F_R_array_z[u]  
-            matrix_slice[i][M_slice] =  matrix_slice[i][M_slice] + F_R_array_z[u] * 
+            matrix_slice[i][M_slice] =  matrix_slice[i][M_slice] + F_R_array_z[u] * Arm_array_y[u]
             u = u + 1
         if matrix_slice[i][rib_flag] == 1 or matrix_slice[i][hinge_flag] == 1:
-            matrix_slice[i][F_y_slice] = matrix_slice[i][F_y_slice] + F_R_array_y[w]  
+            matrix_slice[i][F_y_slice] = matrix_slice[i][F_y_slice] + F_R_array_y[w] 
+            matrix_slice[i][M_slice] =  matrix_slice[i][M_slice] + F_R_array_y[w] * Arm_array_z[w]
             w = w + 1
 
     i = 0
@@ -78,8 +83,13 @@ def NumericalExternalForces(CentroidAirfoil, N, matrix_max, F_H1_z, F_H1_y, P_ja
         matrix_slice[i][M_total] = matrix_slice[i-1][M_total] + matrix_slice[i][M_slice]
     
     return matrix_slice
-        
-        
+
+ms = NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H2_z, F_H2_y, P, F_H3_y, C_a, h, q)
+msx = ms[1][:]
+msy = ms[10][:]       
+plt.scatter(ms[1][:], ms[10][:])  
+
+plt.show      
         
 
         
