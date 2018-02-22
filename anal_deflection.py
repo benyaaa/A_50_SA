@@ -29,6 +29,6 @@ def deflect(x):
         v = (-1/24)*(q*cos(theta))*x**4 + (1/6)*F_H1_y*(x-x_1)**3 - (1/6)*P_jam*sin(theta)*(x-(x_2-(x_a/2)))**3 + (1/6)*F_H2_y*(x-x_2)**3 + (1/6)*P*sin(theta)(x-(x_2+(x_a/2)))**3 + C*x + L
     elif x > x_3 and x <= l_a:
         v = (-1/24)*(q*cos(theta))*x**4 + (1/6)*F_H1_y*(x-x_1)**3 - (1/6)*P_jam*sin(theta)*(x-(x_2-(x_a/2)))**3 + (1/6)*F_H2_y*(x-x_2)**3 + (1/6)*P*sin(theta)(x-(x_2+(x_a/2)))**3 + 1/2*F_H3_y*(x-x_3)**3 + C*x + L        
-    return v
+    return v/(E*I_zz)
  
 

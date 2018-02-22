@@ -65,16 +65,6 @@ u = np.concatenate((u1,u2,u3,u4,u5,u6,u7,u8))
 
 X = inv(M)*u
 
-
-
-
-F_H1_y = X[0][0]
-print float(F_H1_y)
-
-
-
-
-
 F_H1_y = float(X[0])
 F_H2_y = float(X[1])
 F_H3_y = float(X[2])
@@ -84,21 +74,13 @@ P_jam  = float(X[5])
 C      = float(X[6])
 L      = float(X[7])
 
-print 'F_H1_y =', float(X[0])
+#print 'F_H1_y =', float(X[0])
 print 'F_H2_y =', float(X[1])
-print 'F_H3_y =', float(X[2])
-print 'F_H1_z =', float(X[3])
+#print 'F_H3_y =', float(X[2])
+#print 'F_H1_z =', float(X[3])
 print 'F_H2_z =', float(X[4])
-print 'P_jam  =', float(X[5])
-print 'C      =', float(X[6])
-print 'L      =', float(X[7])
-<<<<<<< HEAD
-
-
-
-print 'Deflection = ,', (L/(E*I_zz))/cos(theta) # in gloval cooridinate system
-=======
-print 'Deflection = ', (L/(E*I_zz))/cos(theta) # in global cooridinate system
->>>>>>> 8caf6e92499d666186e3bf255d4905083210eefd
-
+#print 'P_jam  =', float(X[5])
+#print 'C      =', float(X[6])
+#print 'L      =', float(X[7])
+#print 'Deflection = ,', (L/(E*I_zz))/cos(theta) # in global cooridinate system
 
