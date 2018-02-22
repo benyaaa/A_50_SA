@@ -17,7 +17,7 @@ zy = IdealisedStructure(Q, y_cst, z_cst)
 
 
 
-print deflect(8)
+
 
 
 
