@@ -1,6 +1,10 @@
 from anal_deflection import *
 from SVV_input import *
 from centroid_MOI import *
+from Idealised_structure2 import *
+
+
+print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 
 print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 
@@ -23,14 +27,23 @@ theta = radians(26) #rad, maximum upward defelction
 P = 9.17*10**3      #N, load in actuator 2
 q = 4.53            #N/mm, net aerodynamic load
 
-E = 73.1*10**9      #Pa, modulus of elasticity
+z_cst = CentroidStringers(st_n, beta_sttr, C_a, h, S_st)[0]
+y_cst = CentroidStringers(st_n, beta_sttr, C_a, h, S_st)[1]
 
-Q = 3               # Q = 0,1,3,7,15,31,63,127,255,511 Extra elements between booms
 
 
-Q = int(0)          # number of skin booms (extra booms placed between the stringer booms to increase acc)
+print IdealisedStructure(Q, y_cst, z_cst)
 
-E = 73.1*10**3      #N/mm^2, modulus of elasticity
+zy = IdealisedStructure(Q, y_cst, z_cst)
+
+print MOIYYBoom(IdealisedStructure,CentroidAirfoil)
+print MOIZZBoom(IdealisedStructure,CentroidAirfoil)
 
 
 print deflect(8)
+
+
+
+
+
+
