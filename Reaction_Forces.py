@@ -99,9 +99,6 @@ print 'L      =', float(X[7])
 print 'Deflection = ,', (L/(E*I_zz))/cos(theta) # in gloval cooridinate system
 
 print 'Deflection = ', (L/(E*I_zz))/cos(theta) # in global cooridinate system
-<<<<<<< HEAD
 
-=======
->>>>>>> a2d375cf18f834bdf893636cc9b4d9676234d92d
 
 
