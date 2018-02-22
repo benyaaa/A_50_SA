@@ -7,8 +7,8 @@ def CentroidStringers(st_n, beta_sttr, C_a, h, S_st): #[0]returns array with cen
     
     z_cst = S_st*cos(beta_sttr)*st_n-0.5*S_st #stiffener 1-6&12-17
     z_cst = np.append(z_cst,z_cst)
-    y_cst = S_st*sin(beta_sttr)*st_n-0.5*S_st #stiffener 1-6
-    y_cst = np.append(y_cst,-(S_st*sin(beta_sttr)*st_n-0.5*S_st)) #stiffener 12-17 (negative wrt 1-6)
+    y_cst = ((S_st*st_n)-0.5*S_st)*sin(beta_sttr) #stiffener 1-6
+    y_cst = np.append(y_cst,-((S_st*st_n)-0.5*S_st)*sin(beta_sttr)) #stiffener 12-17 (negative wrt 1-6)
     #semi circular part
     z_cst = np.append(z_cst, cos(S_st*2*pi/(2*pi*(h/2)))*(h/2)+C_a-(h/2))#stiffener 8&10
     z_cst = np.append(z_cst, cos(S_st*2*pi/(2*pi*(h/2)))*(h/2)+C_a-(h/2))
