@@ -1,7 +1,7 @@
 from math import *
 import numpy as np
 from SVV_input import *
-
+from Idealised_structure2 import *
 
 def CentroidStringers(st_n, beta_sttr, C_a, h, S_st): #[0]returns array with centroids z location of stringers, [1]returns array with centroids z location of stringers array[1,2,3,4,5,6,17,16,15,14,13,12,8,10,7,11,9]
     
@@ -62,6 +62,22 @@ def MOIYYAirfoil(t_st, h_st, w_st, BetaStringers, z_cst, CentroidAirfoil): #retu
     I_yyairfoil = I_yyst + I_yytr + I_yysp + I_yysc 
     return I_yyairfoil
 
+
+def MOIYYBoom(IdealisedStructure,CentroidAirfoil):
+    M_booms = IdealisedStructure(Q,y_cst,z_cst)
+    z_centroid,y_centroid = CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)
+    I_yy_boom = 0
+    for i in range(19):
+        I_yy_boom = M_booms[i][-3]*(z_centroid-M_booms[i][-2])**2
+    return I_yy_boom
+
+def MOIZZBoom(IdealisedStructure,CentroidAirfoil):
+    M_booms = IdealisedStructure(Q,y_cst,z_cst)
+    z_centroid,y_centroid = CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)
+    I_zz_boom = 0
+    for i in range(19):
+        I_zz_boom = M_booms[i][-3]*(y_centroid-M_booms[i][-1])**2
+    return I_zz_boom
 
 
 
