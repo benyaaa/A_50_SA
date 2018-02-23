@@ -7,6 +7,7 @@ Created on Thu Feb 22 14:57:29 2018
 """
 
 from SVV_input import *
+
 def slicing(x_1,x_2,x_3,x_a,l_a):
     A = x_1
     B = x_2 - x_a/2.
@@ -77,10 +78,10 @@ def slicing(x_1,x_2,x_3,x_a,l_a):
         M_slices[i][0]=i
     
      
-    return M_slices
+    return M_slices, N
         
-        
-ss= slicing(x_1,x_2,x_3,x_a,l_a)    
-    
+
+ss= slicing(x_1,x_2,x_3,x_a,l_a)[0]    
+N = slicing(x_1,x_2,x_3,x_a,l_a)[1]    
         
         
