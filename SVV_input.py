@@ -65,11 +65,13 @@ z_cse = 2*(h/2)/pi + C_a-(h/2) #according to the internet
 y_cse = 0 #on the symmetry line
 A_se = pi*(h/2)*t_sk
 
-#the stiffeners (dumdumduuummmm)
+#the stiffeners
 
 A_st = t_st*(h_st+w_st) #area per stiffener
 
+#------------------------Slicing Input--------------------------------#
+M = 100             #Number of slices, M>=4 since there are 4 ribs
 
 
-#--------------------------------------------------------#
+
 
