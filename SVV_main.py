@@ -2,7 +2,7 @@ from anal_deflection import *
 from SVV_input import *
 from centroid_MOI import *
 from Idealised_structure2 import *
-
+from Numerical_check_for_external_forces import *
 
 print MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 
@@ -22,6 +22,10 @@ print MOIYYBoom(IdealisedStructure,CentroidAirfoil)
 print MOIZZBoom(IdealisedStructure,CentroidAirfoil)
 
 print CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)
+
+zzy = NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H2_z, F_H2_y, P, F_H3_y, C_a, h, q)
+
+print zzy
 
 
 

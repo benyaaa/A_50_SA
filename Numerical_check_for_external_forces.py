@@ -35,8 +35,8 @@ def NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H
     rib_A_F_z = F_H1_z
     rib_A_F_y = F_H1_y
     
-    rib_B_F_z = P_jam * cos(theta)
-    rib_B_F_y = P_jam * sin(theta)
+    rib_B_F_z = -P_jam * cos(theta)
+    rib_B_F_y = -P_jam * sin(theta)
     
     Hinge_2_F_z = F_H2_z
     Hinge_2_F_y = F_H2_y
@@ -64,7 +64,7 @@ def NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H
     for i in range(len(matrix_slice)):
         #assuming ccw positive for moments (in other words we follow a right handed coordinate system)
         matrix_slice[i][F_z_slice] = q * matrix_slice[i][thickness] * sin(theta)
-        matrix_slice[i][F_y_slice] = q * matrix_slice[i][thickness] * cos(theta)
+        matrix_slice[i][F_y_slice] = -q * matrix_slice[i][thickness] * cos(theta)
         matrix_slice[i][M_slice] = q * matrix_slice[i][thickness] * cos(theta) * ((0.75 * C_a) - CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0])
         # adding forces in the ribs and form hinge 2
         if matrix_slice[i][rib_flag] == 1 or matrix_slice[i][hinge_flag] == 1:
@@ -84,6 +84,13 @@ def NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H
     
     return matrix_slice
 
+
+
+
+
+
+'''
+
 ms = NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H2_z, F_H2_y, P, F_H3_y, C_a, h, q)
 msx = ms[1][:]
 msy = ms[10][:]       
@@ -91,7 +98,7 @@ plt.scatter(ms[1][:], ms[10][:])
 
 plt.show      
         
-
+'''
         
     
 
