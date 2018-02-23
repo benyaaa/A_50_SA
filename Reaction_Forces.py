@@ -75,26 +75,12 @@ C      = float(X[6])
 L      = float(X[7])
 
 #print 'F_H1_y =', float(X[0])
-print 'F_H2_y =', float(X[1])
+#print 'F_H2_y =', float(X[1])
 #print 'F_H3_y =', float(X[2])
 #print 'F_H1_z =', float(X[3])
-print 'F_H2_z =', float(X[4])
-<<<<<<< HEAD
+#print 'F_H2_z =', float(X[4])
 #print 'P_jam  =', float(X[5])
 #print 'C      =', float(X[6])
 #print 'L      =', float(X[7])
 #print 'Deflection = ,', (L/(E*I_zz))/cos(theta) # in global cooridinate system
-=======
-print 'P_jam  =', float(X[5])
-print 'C      =', float(X[6])
-print 'L      =', float(X[7])
-
-
-
-
-print 'Deflection = ,', (L/(E*I_zz))/cos(theta) # in gloval cooridinate system
-
-print 'Deflection = ', (L/(E*I_zz))/cos(theta) # in global cooridinate system
-
->>>>>>> a2d375cf18f834bdf893636cc9b4d9676234d92d
 
