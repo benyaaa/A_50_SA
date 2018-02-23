@@ -47,8 +47,8 @@ def IdealisedStructure(Q, y_cst, z_cst):
     #z and y coordinates for boom areas for spar boom number, 6 and 12
     M_booms[N_spar_boom_top][-2] = C_a-h/2
     M_booms[N_spar_boom_bottom][-2] = C_a-h/2
-    M_booms[N_spar_boom_top][-1] = h
-    M_booms[N_spar_boom_bottom][-1] = -h
+    M_booms[N_spar_boom_top][-1] = h/2
+    M_booms[N_spar_boom_bottom][-1] = -h/2
     
     # adding connection for spar
 

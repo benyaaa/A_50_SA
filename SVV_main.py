@@ -23,7 +23,19 @@ print MOIZZBoom(IdealisedStructure,CentroidAirfoil)
 
 print CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)
 
+
+
+
+
+
+
 zzy = NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F_H2_z, F_H2_y, P, F_H3_y, C_a, h, q)
+
+M_booms = IdealisedStructure(Q, y_cst, z_cst)
+
+
+
+
 
 print zzy
 
