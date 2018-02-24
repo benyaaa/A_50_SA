@@ -83,4 +83,4 @@ L      = float(X[7])
 #print 'C      =', float(X[6])
 #print 'L      =', float(X[7])
 #print 'Deflection = ,', (L/(E*I_zz))/cos(theta) # in global cooridinate system
->>>>>>> 31c2b5204f0bee0dfdc92d5f186ce660bd372397
+
