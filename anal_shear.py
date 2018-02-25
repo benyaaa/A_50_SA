@@ -12,6 +12,8 @@ alpha = tan((h/2.)/(C_a-(h/2.)))
 s_1 = sqrt((C_a-(h/2.))**2 + (h/2.)**2)
 s_3 = h
 
+
+# Shear flow computation:
 def shear(S_y,S_z):
     Z = S_z/I_yy
     Y = S_y/I_zz
@@ -36,6 +38,7 @@ def shear(S_y,S_z):
 
     return q_13, q_43, q_32
 
+# Shear centre computation
 def sc():
     S_z = 0
     S_y = 1
@@ -48,12 +51,16 @@ def sc():
     eps = - (-Z*t_sk*(s_1**3/6.)*cos(alpha) - Y*t_sk*(s_1**3/6.)*sin(alpha))*s_1*sin(2.*alpha) - 2*A_I*q_s0_I - 2*A_II*q_s0_II
     return eps
 
-eta = sc()
-x = 0.
-J = I_zz + I_yy
+# Angle of twist computation due to torsion
+eta = sc() # location of the shear centre
+x = 0.  # x-coordinate (spanwise location of aileron)
+J = I_zz + I_yy  # polar moment of inertia
 
+# constant of integration (K) can be determined by using the boundary condition of hinge 2 where the twist is assumed zero
+# twist(x=x_2) = 0
 K =-(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))))
 
+# torsion and twist distributions are computed below
 if x >= 0 and x <= x_1:
         T = q*cos(theta)*(0.75*C_a-eta)*x
         twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 + K)
@@ -74,4 +81,4 @@ elif x > x_3 and x <= l_a:
         twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))) - F_H2_y*(l_a-(h/2.)-eta)*(x-x_2) + P*sin(theta)*(l_a-eta)*(x-(x_2+(x_a/2.))) - P*cos(theta)*(h/2.)*(x-(x_2+(x_a/2.))) - F_H3_y*(l_a-(h/2.)-eta)*(x-x_3) + K)
 
 print 'T =', T
-print 'twist =', twist
+print 'twist =', degrees(twist)
