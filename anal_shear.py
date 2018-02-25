@@ -1,6 +1,7 @@
 from math import *
 from SVV_input import *
 from centroid_MOI import *
+from Reaction_Forces import *
 
 I_zz = MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 I_yy = MOIYYAirfoil(t_st, h_st, w_st, BetaStringers, z_cst, CentroidAirfoil)
@@ -47,5 +48,30 @@ def sc():
     eps = - (-Z*t_sk*(s_1**3/6.)*cos(alpha) - Y*t_sk*(s_1**3/6.)*sin(alpha))*s_1*sin(2.*alpha) - 2*A_I*q_s0_I - 2*A_II*q_s0_II
     return eps
 
-print sc()
+eta = sc()
+x = 0.
+J = I_zz + I_yy
 
+K =-(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))))
+
+if x >= 0 and x <= x_1:
+        T = q*cos(theta)*(0.75*C_a-eta)*x
+        twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 + K)
+elif x > x_1 and x <= (x_2-(x_a/2.)):
+        T = q*cos(theta)*(0.75*C_a-eta)*x - F_H1_y*(l_a-(h/2.)-eta)
+        twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + K)
+elif x > (x_2-(x_a/2)) and x <= x_2:
+        T = q*cos(theta)*(0.75*C_a-eta)*x - F_H1_y*(l_a-(h/2.)-eta) + P_jam*cos(theta)*(h/2) - P_jam*sin(theta)*(l_a-eta)
+        twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))) + K)
+elif x > x_2 and x <= (x_2+(x_a/2)):
+        T = q*cos(theta)*(0.75*C_a-eta)*x - F_H1_y*(l_a-(h/2.)-eta) + P_jam*cos(theta)*(h/2) - P_jam*sin(theta)*(l_a-eta) - F_H2_y*(l_a-(h/2.)-eta)
+        twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))) - F_H2_y*(l_a-(h/2.)-eta)*(x-x_2) + K)
+elif x > (x_2+(x_a/2)) and x <= x_3:
+        T = q*cos(theta)*(0.75*C_a-eta)*x - F_H1_y*(l_a-(h/2.)-eta) + P_jam*cos(theta)*(h/2) - P_jam*sin(theta)*(l_a-eta) - F_H2_y*(l_a-(h/2.)-eta) + P*sin(theta)*(l_a-eta) - P*cos(theta)*(h/2.)
+        twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))) - F_H2_y*(l_a-(h/2.)-eta)*(x-x_2) + P*sin(theta)*(l_a-eta)*(x-(x_2+(x_a/2.))) - P*cos(theta)*(h/2.)*(x-(x_2+(x_a/2.))) + K)                                                                                         
+elif x > x_3 and x <= l_a:
+        T = q*cos(theta)*(0.75*C_a-eta)*x - F_H1_y*(l_a-(h/2.)-eta) + P_jam*cos(theta)*(h/2) - P_jam*sin(theta)*(l_a-eta) - F_H2_y*(l_a-(h/2.)-eta) + P*sin(theta)*(l_a-eta) - P*cos(theta)*(h/2.) - F_H3_y*(l_a-(h/2.)-eta)
+        twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))) - F_H2_y*(l_a-(h/2.)-eta)*(x-x_2) + P*sin(theta)*(l_a-eta)*(x-(x_2+(x_a/2.))) - P*cos(theta)*(h/2.)*(x-(x_2+(x_a/2.))) - F_H3_y*(l_a-(h/2.)-eta)*(x-x_3) + K)
+
+print 'T =', T
+print 'twist =', twist
