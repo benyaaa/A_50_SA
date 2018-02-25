@@ -55,6 +55,6 @@ A_st = t_st*(h_st+w_st) #area per stiffener
 M = 100             #Number of slices, M>=4 since there are 4 ribs
 
 
-E = 73.1*10**9     
+E = 73.1*10**3     
 # source: http://asm.matweb.com/search/SpecificMaterial.asp?bassnum=ma2024t3
 

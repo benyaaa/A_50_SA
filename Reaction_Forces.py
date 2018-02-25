@@ -1,11 +1,4 @@
 from SVV_input import *
-
-
-I_zz = 1.0*10**6
-
-I_zz = 1.0
-I_zz = 0.1
-
 from centroid_MOI import *
 
 I_zz = MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
@@ -24,9 +17,7 @@ m2 = np.mat([0.,0.,0.,1.,1.,cos(theta),0.,0.])
 u2 = np.mat([P*cos(theta)-q*l_a*sin(theta)])
 
 # Eq 3: Moment equilibrium x-axis
-#m3 = np.mat([0.,0.,0.,0.,0.,(h/2.)*cos(theta)-(h/2.)*sin(theta),0.,0.])
 m3 = np.mat([0,0,0,0,0,(h/2.)*cos(theta)-(h/2.)*sin(theta),0,0])
-#m3 = np.mat([0.,0.,0.,0.,0.,(h/2.)*cos(theta)-(h/2.)*sin(theta),0.,0.])
 u3 = np.mat([P*(h/2)*cos(theta)-P*(h/2)*sin(theta)+q*l_a*cos(theta)*(0.25*C_a-(h/2.))])
 
 # Eq 4: Moment equilibrium y-axis
