@@ -13,6 +13,8 @@ s_1 = sqrt((C_a-(h/2.))**2 + (h/2.)**2)
 s_3 = h
 
 
+
+
 # Shear flow computation:
 def shear(S_y,S_z):
     Z = S_z/I_yy
@@ -51,6 +53,10 @@ def sc():
     eps = - (-Z*t_sk*(s_1**3/6.)*cos(alpha) - Y*t_sk*(s_1**3/6.)*sin(alpha))*s_1*sin(2.*alpha) - 2*A_I*q_s0_I - 2*A_II*q_s0_II
     return eps
 
+#shear flow distribution
+
+
+
 # Angle of twist computation due to torsion
 eta = sc() # location of the shear centre
 x = l_a  # x-coordinate (spanwise location of aileron)
@@ -81,3 +87,27 @@ def twister(x):
             T = q*cos(theta)*(0.75*C_a-eta)*x - F_H1_y*(l_a-(h/2.)-eta) + P_jam*cos(theta)*(h/2) - P_jam*sin(theta)*(l_a-eta) - F_H2_y*(l_a-(h/2.)-eta) + P*sin(theta)*(l_a-eta) - P*cos(theta)*(h/2.) - F_H3_y*(l_a-(h/2.)-eta)
             twist = (1/(G*J))*(0.5*q*cos(theta)*(0.75*C_a-eta)*x**2 - F_H1_y*(l_a-(h/2.)-eta)*(x-x_1) + P_jam*cos(theta)*(h/2)*(x-(x_2-(x_a/2.))) - P_jam*sin(theta)*(l_a-eta)*(x-(x_2-(x_a/2.))) - F_H2_y*(l_a-(h/2.)-eta)*(x-x_2) + P*sin(theta)*(l_a-eta)*(x-(x_2+(x_a/2.))) - P*cos(theta)*(h/2.)*(x-(x_2+(x_a/2.))) - F_H3_y*(l_a-(h/2.)-eta)*(x-x_3) + K)
     return twist
+
+
+# Shear force distribution
+def shear_distri(x):
+    if x >= 0 and x <= x_1:
+            S_y = -q*cos(theta)*x
+            S_z = q*sin(theta)*x 
+    elif x > x_1 and x <= (x_2-(x_a/2.)):
+            S_y = -q*cos(theta)*x + F_H1_y 
+            S_z = q*sin(theta)*x + F_H1_z  
+    elif x > (x_2-(x_a/2)) and x <= x_2:
+            S_y = -q*cos(theta)*x + F_H1_y + P_jam*sin(theta) 
+            S_z = q*sin(theta)*x + F_H1_z + P_jam*cos(theta) 
+    elif x > x_2 and x <= (x_2+(x_a/2)):
+            S_y = -q*cos(theta)*x + F_H1_y + P_jam*sin(theta) + F_H2_y 
+            S_z = q*sin(theta)*x + F_H1_z + P_jam*cos(theta) + F_H2_z  
+    elif x > (x_2+(x_a/2)) and x <= x_3:
+            S_y = -q*cos(theta)*x + F_H1_y + P_jam*sin(theta) + F_H2_y - P*sin(theta) 
+            S_z = q*sin(theta)*x + F_H1_z + P_jam*cos(theta) + F_H2_z - P*cos(theta)                                                                                          
+    elif x > x_3 and x <= l_a:
+            S_y = -q*cos(theta)*x + F_H1_y + P_jam*sin(theta) + F_H2_y - P*sin(theta) + F_H3_y
+            S_z = q*sin(theta)*x + F_H1_z + P_jam*cos(theta) + F_H2_z - P*cos(theta) 
+    return S_y, S_z
+

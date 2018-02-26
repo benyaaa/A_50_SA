@@ -10,7 +10,7 @@ I_zz = MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst)
 
 # Eq 1: Force equilibrium in y-direction
 m1 = np.mat([1.,1.,1.,0.,0.,sin(theta),0.,0.])     
-u1 = np.mat([P*sin(theta)+q*l_a*sin(theta)])
+u1 = np.mat([P*sin(theta)+q*l_a*cos(theta)])
 
 # Eq 2: Force equilibrium in z-axis
 m2 = np.mat([0.,0.,0.,1.,1.,cos(theta),0.,0.])
