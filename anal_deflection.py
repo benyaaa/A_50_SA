@@ -49,7 +49,7 @@ def deflect_z(x):
 
 # the deflection in hinge 2 should be zero, but is right now 5 mm
  
-print deflect_z(l_a)
+#print deflect_z(l_a)
 '''
 def deflectplot()
     deflect_list = []
