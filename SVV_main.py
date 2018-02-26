@@ -19,6 +19,15 @@ zzzy = Numerical_stresses_and_deformations(zzy, M_booms, E, MOIYYBoom(IdealisedS
 
 
 
+
+
+
+
+
+
+
+
+
 #---------- Analytical model -------------#
 
 # Shear flow: 

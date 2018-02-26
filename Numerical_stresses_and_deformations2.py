@@ -67,46 +67,6 @@ def Numerical_stresses_and_deformations(zzy, M_booms, E, MOIYYBoom_value, MOIZZB
 
     for the_slice in range(0, nslice):
         for the_boom in range(0, nboom):
-            #calculating bending streses in every boom \sigma=(M/I)*y
-            matrix_nsad[stress_bend_over_axis_z][the_slice][the_boom] = ((zzy[the_slice][Bending_moment_z])/(MOIZZBoom_value))*(M_booms[the_boom][y_coordinate_boom])
-            matrix_nsad[stress_bend_over_axis_y][the_slice][the_boom] = ((zzy[the_slice][Bending_moment_y])/(MOIYYBoom_value))*(M_booms[the_boom][z_coordinate_boom])
-            
-            # calculating the deformation due to bending stress in every boom \varepsilon_x = \sigma/E
-            matrix_nsad[defor_bend_over_axis_z][the_slice][the_boom] = (matrix_nsad[stress_bend_over_axis_z][the_slice][the_boom]/E)*zzy[the_slice][tickness]
-            matrix_nsad[defor_bend_over_axis_y][the_slice][the_boom] = (matrix_nsad[stress_bend_over_axis_y][the_slice][the_boom]/E)*zzy[the_slice][tickness]
-            
-            #We don't calculate shear flow at this time because we may decide that it is neglectable
-            #calculating shear flow due to vertical and horizontal shear load
-            
-            
-            #We don't calculate shear deformation at this time because we may decide that it is neglectable
-            #calculating shear deformation due to vertical and horizontal shear load
-    
-    
-            #torsion to be done on monday
-            #calculating shear flow due to torsion
-            
-            
-            #torsion to be done on monday
-            #calculating deformation due to torsion
-    
-            
-            
-            #filling in the x, y and z coordinates of every boom
-            #taking the middle of the slice as the x-coordinate
-            matrix_nsad[x_co_undeformed][the_slice][the_boom] = ((zzy[the_slice][end] + zzy[the_slice][begining]))/2
-            matrix_nsad[y_co_undeformed][the_slice][the_boom] = M_booms[the_boom][y_coordinate_boom]
-            matrix_nsad[z_co_undeformed][the_slice][the_boom] = M_booms[the_boom][z_coordinate_boom]  
-    
-    
-            #finding the x, y and z coordinates of every boom after deformation
-            
-        
-   
-
-
-
-
 
     return matrix_nsad 
 
