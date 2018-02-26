@@ -27,17 +27,21 @@ q_rib_2_a = shear(shear_distri(x_2-(x_a/2.))[0],shear_distri(x_2-(x_a/2.))[1])
 q_rib_2_b = shear(shear_distri(x_2+(x_a/2.))[0],shear_distri(x_2+(x_a/2.))[1])
 q_rib_3 = shear(shear_distri(x_3)[0],shear_distri(x_3)[1])
 
-# Deflection:
-delta_bend_0 = deflect(0) # the defelction due to bending and shear at point 0 (most inboard)
-delta_bend_4 = deflect(l_a) # the defelction due to bending and shear at point 4 (most outboard)
+# Deflection in y of the global coordinate system:
+delta_bend_0_y = deflect_y(0) # the deflection due to bending and shear at point 0 (most inboard)
+delta_bend_4_y = deflect_y(l_a) # the deflection due to bending and shear at point 4 (most outboard)
+
+# Deflection in z of the global coordinate system:
+delta_bend_0_z = deflect_z(0) # the deflection due to bending and shear at point 0 (most inboard)
+delta_bend_4_z = deflect_z(l_a) # the deflection due to bending and shear at point 4 (most outboard)
 
 # Twist angle:
-twist_0 = twister(0.)
+twist_0 = twister(0.) 
 twist_4 = twister(l_a)
 
 # Total deflection:
-delta_le_0 = delta_bend_0 - eta*sin(twist_0)*cos(theta)
-delta_te_0 = delta_bend_0 + (C_a-eta)*sin(twist_0)*cos(theta)
+delta_le_0 = delta_bend_0_y - eta*sin(twist_0)*cos(theta)
+delta_te_0 = delta_bend_0_y + (C_a-eta)*sin(twist_0)*cos(theta)
 
-delta_le_4 = delta_bend_4 - eta*sin(twist_4)*cos(theta)
-delta_te_4 = delta_bend_4 + (C_a-eta)*sin(twist_4)*cos(theta)
+delta_le_4 = delta_bend_4_y - eta*sin(twist_4)*cos(theta)
+delta_te_4 = delta_bend_4_y + (C_a-eta)*sin(twist_4)*cos(theta)
