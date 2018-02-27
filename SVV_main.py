@@ -22,7 +22,7 @@ zzzy = Numerical_stresses_and_deformations(zzy, M_booms, E, MOIYYBoom(IdealisedS
 #---------- Analytical model -------------#
 
 # Shear flow:
-q_rib_1 = shear(shear_distri(x_1)[0],shear_distri(x_1)[1])  # shear flow in rib 1, (q_13, q_43, q_32)
+q_rib_1 = shear(shear_distri(x_1)[0],shear_distri(x_1)[1])  # shear flow in rib 1, (q_12, q_13, q_43, q_32)  
 q_rib_2_a = shear(shear_distri(x_2-(x_a/2.))[0],shear_distri(x_2-(x_a/2.))[1])
 q_rib_2_b = shear(shear_distri(x_2+(x_a/2.))[0],shear_distri(x_2+(x_a/2.))[1])
 q_rib_3 = shear(shear_distri(x_3)[0],shear_distri(x_3)[1])
