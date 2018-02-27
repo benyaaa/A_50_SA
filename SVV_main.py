@@ -41,3 +41,5 @@ delta_te_0 = delta_bend_0 + (C_a-eta)*sin(twist_0)*cos(theta)
 
 delta_le_4 = delta_bend_4 - eta*sin(twist_4)*cos(theta)
 delta_te_4 = delta_bend_4 + (C_a-eta)*sin(twist_4)*cos(theta)
+
+print M_booms
