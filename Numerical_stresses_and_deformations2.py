@@ -15,7 +15,7 @@ from Reaction_Forces import *
 
 #matrix[row][column]
 
-def Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, CentroidAirfoil, IdealisedStructure, G, K):
+def Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, CentroidAirfoil, IdealisedStructure, G, K, S_st):
     # defining names of the rows of the matrix matrix_nsad
     z_deformation_due_to_bending	=	0
     y_deformation_due_to_bending	=	1
@@ -188,6 +188,67 @@ def Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, 
             + (zzy[the_slice][F_y_total] / MOIZZBoom_value) * (M_booms[the_boom-1][area_boom] * M_booms[the_boom-1][y_coordinate_boom]) \
             + (zzy[the_slice][F_z_total] / MOIYYBoom_value) * (M_booms[the_boom-1][area_boom] * (M_booms[the_boom-1][z_coordinate_boom]-z_coordinate_shear_center))            
         
+        
+        
+        
+        
+        
+        
+
+    for the_slice in range(0, nslice):
+        S_spse = (((pi*(h/2) / S_st) - 4) / 2) * S_st
+        S_sptr = S_st - S_spse
+        
+        MOM_TE = shear_flow_spar * C_a-(h/2) + matrix_nsad[shear_flow][the_slice][7] * (matrix_nsad[y_co_undeformed][the_slice][6] - matrix_nsad[y_co_undeformed][the_slice][7]) \
+        * (matrix_nsad[y_co_undeformed][the_slice][6] + matrix_nsad[y_co_undeformed][the_slice][7])/2 \
+        + matrix_nsad[shear_flow][the_slice][7] * (matrix_nsad[z_co_undeformed][the_slice][6] - matrix_nsad[z_co_undeformed][the_slice][7]) \
+        * (matrix_nsad[z_co_undeformed][the_slice][6] + matrix_nsad[z_co_undeformed][the_slice][7])/2 \
+        \
+        + matrix_nsad[shear_flow][the_slice][7+1] * (matrix_nsad[y_co_undeformed][the_slice][6+1] - matrix_nsad[y_co_undeformed][the_slice][7+1]) \
+        * (matrix_nsad[y_co_undeformed][the_slice][6+1] + matrix_nsad[y_co_undeformed][the_slice][7+1])/2 \
+        + matrix_nsad[shear_flow][the_slice][7+1] * (matrix_nsad[z_co_undeformed][the_slice][6+1] - matrix_nsad[z_co_undeformed][the_slice][7+1]) \
+        * (matrix_nsad[z_co_undeformed][the_slice][6+1] + matrix_nsad[z_co_undeformed][the_slice][7+1])/2 \
+        \
+        + matrix_nsad[shear_flow][the_slice][7+4] * (matrix_nsad[y_co_undeformed][the_slice][6+4] - matrix_nsad[y_co_undeformed][the_slice][7+4]) \
+        * (matrix_nsad[y_co_undeformed][the_slice][6+4] + matrix_nsad[y_co_undeformed][the_slice][7+4])/2 \
+        + matrix_nsad[shear_flow][the_slice][7+4] * (matrix_nsad[z_co_undeformed][the_slice][6+4] - matrix_nsad[z_co_undeformed][the_slice][7+4]) \
+        * (matrix_nsad[z_co_undeformed][the_slice][6+4] + matrix_nsad[z_co_undeformed][the_slice][7+4])/2 \
+        \
+        + matrix_nsad[shear_flow][the_slice][7+1+4] * (matrix_nsad[y_co_undeformed][the_slice][6+1+4] - matrix_nsad[y_co_undeformed][the_slice][7+1+4]) \
+        * (matrix_nsad[y_co_undeformed][the_slice][6+1+4] + matrix_nsad[y_co_undeformed][the_slice][7+1+4])/2 \
+        + matrix_nsad[shear_flow][the_slice][7+1+4] * (matrix_nsad[z_co_undeformed][the_slice][6+1+4] - matrix_nsad[z_co_undeformed][the_slice][7+1+4]) \
+        * (matrix_nsad[z_co_undeformed][the_slice][6+1+4] + matrix_nsad[z_co_undeformed][the_slice][7+1+4])/2 \
+        
+        
+        
+        A = np.array([[(((10 * S_st + 2 * S_sptr)/t_sk) + (h / t_sp)) , - (((4 * S_st + 2 * S_spse)/t_sk) \
+        + (h / t_sp))],[2*((C_a-h/2)*(h/2)), pi * (h/2)**2 ]])
+    
+        B = np.array([[-((2*(matrix_nsad[shear_flow][the_slice][1] + matrix_nsad[shear_flow][the_slice][2] + matrix_nsad[shear_flow][the_slice][3] \
+        + matrix_nsad[shear_flow][the_slice][4] + matrix_nsad[shear_flow][the_slice][5]) * S_st / t_sk) \
+        + (2 * matrix_nsad[shear_flow][the_slice][6] * S_sptr / t_sk) + (shear_flow_spar - q_1 - q_2) * h / t_sp) \
+        + (2 * (((matrix_nsad[shear_flow][the_slice][8]) * S_st + matrix_nsad[shear_flow][the_slice][7] * S_spse) / t_sk) \
+        + (shear_flow_spar - q_1 - q_2) * h / t_sp) ], [-MOM_TE]])
+    
+        q_s = np.linalg.solve(A,B)
+        shear_flow_spar = shear_flow_spar + q_s[0] -q_s[1]
+        
+        print q_s
+        
+        for the_boom in range(0, 19):
+            if the_boom in [0,1,2,3,4,5,13,14,15,16,17,18]:
+                matrix_nsad[shear_flow][the_slice][the_boom] = matrix_nsad[shear_flow][the_slice][the_boom] + q_s[0]
+            else:
+                matrix_nsad[shear_flow][the_slice][the_boom] = matrix_nsad[shear_flow][the_slice][the_boom] + q_s[1] 
+            
+        
+
+
+
+
+
+
+
 
            
     # adding shear flow due to torison
@@ -198,7 +259,10 @@ def Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, 
             else:
                 matrix_nsad[shear_flow][the_slice][the_boom] = matrix_nsad[shear_flow][the_slice][the_boom] + q_2            
 
+   
+    
 
+            
 
 
 
