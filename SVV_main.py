@@ -53,12 +53,11 @@ twist_4 = twister(l_a)
 delta_le_0 = delta_bend_0_y - eta*sin(twist_0)*cos(theta)
 delta_te_0 = delta_bend_0_y + (C_a-eta)*sin(twist_0)*cos(theta)
 
-<<<<<<< HEAD
+
 delta_le_4 = delta_bend_4 - eta*sin(twist_4)*cos(theta)
 delta_te_4 = delta_bend_4 + (C_a-eta)*sin(twist_4)*cos(theta)
 
 print M_booms
-=======
+
 delta_le_4 = delta_bend_4_y - eta*sin(twist_4)*cos(theta)
 delta_te_4 = delta_bend_4_y + (C_a-eta)*sin(twist_4)*cos(theta)
->>>>>>> 63169b95b6d2faf0b8a4e54064ae775ce7d8c14b
