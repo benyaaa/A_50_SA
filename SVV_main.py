@@ -16,7 +16,7 @@ zzy = NumericalExternalForces(slicing, CentroidAirfoil, F_H1_z, F_H1_y, P_jam, F
 
 M_booms = IdealisedStructure(Q, y_cst, z_cst)
 
-zzzy = Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIYYBoom(IdealisedStructure,CentroidAirfoil), MOIZZBoom(IdealisedStructure,CentroidAirfoil))
+zzzy = Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, CentroidAirfoil, IdealisedStructure, G, K)
 
 
 
