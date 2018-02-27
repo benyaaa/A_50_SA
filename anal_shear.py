@@ -35,10 +35,11 @@ def shear(S_y,S_z):
     q_13 = q_13b + q_s0_I
     q_43 = q_43b + q_s0_II
     q_32 = q_32b + q_s0_I - q_s0_II
+    q_12 = q_13
 
     T = 2*A_I*(2*q_13 + q_32) + 2*A_II*(2*q_43 + q_32)
 
-    return q_13, q_43, q_32
+    return q_12, q_13, q_43, q_32
 
 # Shear centre computation
 def sc():
