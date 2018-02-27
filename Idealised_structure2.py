@@ -10,13 +10,14 @@ import scipy as np
 
 
 def IdealisedStructure(Q, y_cst, z_cst):
-    booms = (n_st+2+Q*20)
+    booms = int(19)
+    #booms = int((n_st + 2 + (Q * 20)))
     
     M_booms = np.zeros((booms,booms+4))
     
     # determining connection between booms, output matrix 4 extra columns on the end. 
     # [boom number /// area boom [mm] /// boom z coordinate /// boom y coorinate]
-    for i in range(booms-Q):
+    for i in range(booms - Q):
         M_booms[i][booms] = i
         M_booms[i-1][i] = 1
         try:

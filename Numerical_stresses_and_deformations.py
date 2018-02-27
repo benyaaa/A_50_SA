@@ -72,11 +72,8 @@ def Numerical_stresses_and_deformations(zzy, M_booms, E, MOIYYBoom_value, MOIZZB
             matrix_nsad[stress_bend_over_axis_y][the_slice][the_boom] = ((zzy[the_slice][Bending_moment_y])/(MOIYYBoom_value))*(M_booms[the_boom][z_coordinate_boom])
             
             # calculating the deformation due to bending stress in every boom \varepsilon_x = \sigma/E
-            matrix_nsad[defor_bend_over_axis_z][the_slice][the_boom] = matrix_nsad[stress_bend_over_axis_z][the_slice][the_boom]/E
-            matrix_nsad[defor_bend_over_axis_y][the_slice][the_boom] = matrix_nsad[stress_bend_over_axis_y][the_slice][the_boom]/E
-            
-            #testing something from Megson p 619, assuming 
-            matrix_nsad[y_displacement_bending][the_slice][the_boom] = matrix_nsad[y_displacement_bending][the_slice -1][the_boom] + M_booms[the_boom][area_boom] * matrix_nsad[defor_bend_over_axis_z][the_slice][the_boom] * matrix_nsad[stress_bend_over_axis_z][the_slice][the_boom] * zzy[the_slice][tickness]
+            matrix_nsad[defor_bend_over_axis_z][the_slice][the_boom] = (matrix_nsad[stress_bend_over_axis_z][the_slice][the_boom]/E)*zzy[the_slice][tickness]
+            matrix_nsad[defor_bend_over_axis_y][the_slice][the_boom] = (matrix_nsad[stress_bend_over_axis_y][the_slice][the_boom]/E)*zzy[the_slice][tickness]
             
             #We don't calculate shear flow at this time because we may decide that it is neglectable
             #calculating shear flow due to vertical and horizontal shear load
@@ -103,19 +100,27 @@ def Numerical_stresses_and_deformations(zzy, M_booms, E, MOIYYBoom_value, MOIZZB
     
     
             #finding the x, y and z coordinates of every boom after deformation
+            
         
-        
-        
-        
+   
+
+
+
+
+
+    return matrix_nsad 
+
+     
+'''        
         for the_slice in range(1, nslice):
             for the_boom in range(0, nboom):            
                 #testing something from Megson p 619, assuming 
                 matrix_nsad[y_displacement_bending][the_slice][the_boom] = matrix_nsad[y_displacement_bending][the_slice -1][the_boom] \
                 + (M_booms[the_boom][area_boom] * matrix_nsad[defor_bend_over_axis_z][the_slice][the_boom] \
-                * matrix_nsad[stress_bend_over_axis_z][the_slice][the_boom] * zzy[the_slice][tickness])
+                * matrix_nsad[stress_bend_over_axis_z][the_slice][the_boom] * zzy[the_slice][tickness]) 
         # this is giving unrealistic results, need more thinking
-            
-    return matrix_nsad    
+'''            
+   
 
 
 
