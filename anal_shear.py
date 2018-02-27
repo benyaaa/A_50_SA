@@ -51,7 +51,7 @@ def sc():
     q_s0_II = ((t_sk*t_sp)/(pi*h*t_sp + h*t_sk)) * ((-2./t_sk)*(-Z*t_sk*h**2 - Y*t_sk*(h**2/2.)) - (s_3/t_sp)*(-Z*t_sk*(h**2/2.) - Y*t_sk*(h**2/2.) - Z*t_sk*(s_1**2/2.)*cos(alpha) - Y*t_sk*(s_1**2/2.)*sin(alpha) - Y*t_sp*(s_3**2/6.)))
 
     eps = - (-Z*t_sk*(s_1**3/6.)*cos(alpha) - Y*t_sk*(s_1**3/6.)*sin(alpha))*s_1*sin(2.*alpha) - 2*A_I*q_s0_I - 2*A_II*q_s0_II
-    return eps
+    return C_a-(h/2.)-eps
 
 #shear flow distribution
 

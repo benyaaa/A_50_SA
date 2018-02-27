@@ -68,7 +68,7 @@ def MOIYYBoom(IdealisedStructure,CentroidAirfoil):
     z_centroid,y_centroid = CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)
     I_yy_boom = 0
     for i in range(19):
-        I_yy_boom = M_booms[i][-3]*(z_centroid-M_booms[i][-2])**2
+        I_yy_boom = I_yy_boom = M_booms[i][-3]*(np.absolute(z_centroid-M_booms[i][-2]))**2
     return I_yy_boom
 
 def MOIZZBoom(IdealisedStructure,CentroidAirfoil):
@@ -76,7 +76,7 @@ def MOIZZBoom(IdealisedStructure,CentroidAirfoil):
     z_centroid,y_centroid = CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)
     I_zz_boom = 0
     for i in range(19):
-        I_zz_boom = M_booms[i][-3]*(y_centroid-M_booms[i][-1])**2
+        I_zz_boom = I_zz_boom + M_booms[i][-3]*(np.absolute(y_centroid-M_booms[i][-1]))**2
     return I_zz_boom
 
 
