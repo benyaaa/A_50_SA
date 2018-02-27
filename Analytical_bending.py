@@ -28,6 +28,6 @@ def bending_stress(x,y,z):
         elif x > x_3 and x <= l_a:
                 M_y = (1./2.)*(q*sin(theta))*x**2 + F_H1_z*(x-x_1) + P_jam*cos(theta)*(x-(x_2-(x_a/2.))) + F_H2_z*(x-x_2) - P*cos(theta)*(x-(x_2+(x_a/2.)))
                 M_z = (-1./2.)*(q*cos(theta))*x**2 + F_H1_y*(x-x_1) + P_jam*sin(theta)*(x-(x_2-(x_a/2.))) + F_H2_y*(x-x_2) - P*sin(theta)*(x-(x_2+(x_a/2.))) + F_H3_y*(x-x_3)
-        sigma_x = (M_z/I_zz)*y+(M_y/I_yy)*(z_cent-z)
+        sigma_x = (M_z/I_zz)*y+(M_y/I_yy)*(z-z_cent)
         return sigma_x
 

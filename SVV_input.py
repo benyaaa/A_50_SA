@@ -17,10 +17,10 @@ t_st = 1.2          #mm, stiffener thickness
 h_st = 1.5           #mm, height of stiffener
 w_st = 20            #mm, width of stiffener
 n_st = int(17)           #-, number of stiffeners equally spaced along cross-section
-d_1 = 110.3          #mm, vertical displacement hinge 1
-d_3 = 164.2          #mm, vertical displacement hinge 2
+d_1 = 110.3/2.54          #mm, vertical displacement hinge 1
+d_3 = 164.2/2.54          #mm, vertical displacement hinge 2
 theta = radians(26) #rad, maximum upward defelction
-P = 9.17*10**3      #N, load in actuator 2
+P = 91.7*10**3      #N, load in actuator 2
 q = 4.53            #N, net aerodynamic load
 E = 73.1*10**3      #N/mm^2, modulus of elasticity
 Q = int(0)               # Q = 0,1,3,7,15,31,63,127,255,511 Extra elements between booms
