@@ -14,14 +14,18 @@ h = 225.              #mm, aileron height
 t_sk = 1.1           #mm, skin thickness
 t_sp = 2.9           #mm, spar thickness
 t_st = 1.2          #mm, stiffener thickness
+<<<<<<< HEAD
+h_st = 15.           #mm, height of stiffener
+=======
 h_st = 1.5           #mm, height of stiffener
+>>>>>>> ecc374648204c48e8bfa504e8e71a33c0f37b1b7
 w_st = 20.            #mm, width of stiffener
 n_st = int(17)           #-, number of stiffeners equally spaced along cross-section
 d_1 = 110.3          #mm, vertical displacement hinge 1
 d_3 = 164.2          #mm, vertical displacement hinge 2
 theta = radians(26) #rad, maximum upward defelction
 P = 91.7*10**3      #N, load in actuator 2
-q = 4.53            #N, net aerodynamic load
+q = 4.53            #N/mm, net aerodynamic load
 E = 73.1*10**3      #N/mm^2, modulus of elasticity
 Q = int(0)               # Q = 0,1,3,7,15,31,63,127,255,511 Extra elements between booms
 G = 28.0*10**3      #Shear modulus N/mm^2

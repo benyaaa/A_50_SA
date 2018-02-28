@@ -43,8 +43,8 @@ def BetaStringers(beta_sttr, S_st, h): #returns array with angles matching y_cst
     return beta_st
 
 def MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst): #returns I_zz of the airfoil cross-section
-    I_zztr = 2*((1/12)*sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(h/2)**2+sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(h/4)**2)
-    I_zzsp = (1/12)*h*t_sp*h**2
+    I_zztr = 2*((1./12.)*sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(h/2)**2+sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(h/4)**2)
+    I_zzsp = (1./12.)*h*t_sp*h**2
     I_zzsc = (pi*(h/2)**3*t_sk)/2
     I_zzstfl = (1./12.)*(t_st*h_st)*(h_st*np.sin(BetaStringers(beta_sttr, S_st, h)))**2+(t_st*h_st)*y_cst**2
     I_zzstba = (t_st*w_st)*y_cst**2
@@ -53,7 +53,7 @@ def MOIZZAirfoil(t_st, h_st, w_st, BetaStringers, y_cst): #returns I_zz of the a
     return I_zzairfoil
 
 def MOIYYAirfoil(t_st, h_st, w_st, BetaStringers, z_cst, CentroidAirfoil): #returns I_yy of the airfoil cross-section
-    I_yytr = 2*((1/12)*sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(C_a-(h/2)**2)+sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0]-(C_a-(h/2))/2)**2)
+    I_yytr = 2*((1./12.)*sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(C_a-(h/2))**2+sqrt((C_a-(h/2))**2+(h/2)**2)*t_sk*(CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0]-(C_a-(h/2))/2)**2)
     I_yysp = h*t_sp*(CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0]-(C_a-(h/2)))**2
     I_yysc = (pi*(h/2)**3*t_sk)/2+pi*(h/2)*t_sk*(CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0]-z_cse)**2
     I_yystfl = (t_st*h_st)*(z_cst-CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0])**2

@@ -31,3 +31,6 @@ def bending_stress(x,y,z):
         sigma_x = (M_z/I_zz)*y+(M_y/I_yy)*(z-z_cent)
         return sigma_x
 
+
+        
+        
