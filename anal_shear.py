@@ -32,14 +32,20 @@ def shear(S_y,S_z):
 
     q_32b = -Y*t_sp*(s_3**2/2.) - Z*t_sk*(s_1**2/2.)*cos(alpha) - Y*t_sk*(s_1**2/2.)*sin(alpha) - Z*t_sk*(h**2/2.) - Y*t_sk*(h**2/2.)
 
+    q_12b = q_13b
+
+    q_24b = q_43b
+
     q_13 = q_13b + q_s0_I
     q_43 = q_43b + q_s0_II
     q_32 = q_32b + q_s0_I - q_s0_II
-    q_12 = -q_13
+    q_12 = q_12b - q_s0_I
+    q_24 = q_24b - q_s0_II
+    
 
     T = 2*A_I*(2*q_13 + q_32) + 2*A_II*(2*q_43 + q_32)
 
-    return q_12, q_13, q_43, q_32, q_s0_I, q_s0_II, q_32b
+    return q_12, q_13, q_43, q_32, q_24, q_s0_I, q_s0_II, q_32b
 
 # Shear centre computation
 def sc():
