@@ -73,9 +73,8 @@ def Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, 
     
 
     # for debugging correct once shear center is known
-    z_coordinate_shear_center = CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0]
-    eta = CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st)[0]
-
+    z_coordinate_shear_center = 300
+    eta = 300
 
 
     for the_slice in range(0, nslice):
@@ -232,8 +231,11 @@ def Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, 
     
         q_s = np.linalg.solve(A,B)
         shear_flow_spar = shear_flow_spar + q_s[0] -q_s[1]
-        
-        print q_s
+        print "shear flow"
+        print the_slice
+        print shear_flow_spar
+
+
         
         for the_boom in range(0, 19):
             if the_boom in [0,1,2,3,4,5,13,14,15,16,17,18]:

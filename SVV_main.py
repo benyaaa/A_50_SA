@@ -22,7 +22,8 @@ M_booms = IdealisedStructure(Q, y_cst, z_cst)
 
 
 
-
+print MOIYYBoom(IdealisedStructure,CentroidAirfoil)
+print MOIZZBoom(IdealisedStructure,CentroidAirfoil)
 
 
 
