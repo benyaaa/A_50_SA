@@ -58,3 +58,4 @@ M = 100             #Number of slices, M>=4 since there are 4 ribs
 E = 73.1*10**3     
 # source: http://asm.matweb.com/search/SpecificMaterial.asp?bassnum=ma2024t3
 
+print h/2
