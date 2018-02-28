@@ -14,11 +14,10 @@ h = 225.              #mm, aileron height
 t_sk = 1.1           #mm, skin thickness
 t_sp = 2.9           #mm, spar thickness
 t_st = 1.2          #mm, stiffener thickness
-<<<<<<< HEAD
+
 h_st = 15.           #mm, height of stiffener
-=======
-h_st = 1.5           #mm, height of stiffener
->>>>>>> ecc374648204c48e8bfa504e8e71a33c0f37b1b7
+
+
 w_st = 20.            #mm, width of stiffener
 n_st = int(17)           #-, number of stiffeners equally spaced along cross-section
 d_1 = 110.3          #mm, vertical displacement hinge 1
@@ -62,4 +61,3 @@ M = 100             #Number of slices, M>=4 since there are 4 ribs
 E = 73.1*10**3     
 # source: http://asm.matweb.com/search/SpecificMaterial.asp?bassnum=ma2024t3
 
-print h/2
