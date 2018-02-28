@@ -14,10 +14,7 @@ h = 225.              #mm, aileron height
 t_sk = 1.1           #mm, skin thickness
 t_sp = 2.9           #mm, spar thickness
 t_st = 1.2          #mm, stiffener thickness
-
 h_st = 15.           #mm, height of stiffener
-
-
 w_st = 20.            #mm, width of stiffener
 n_st = int(17)           #-, number of stiffeners equally spaced along cross-section
 d_1 = 110.3          #mm, vertical displacement hinge 1

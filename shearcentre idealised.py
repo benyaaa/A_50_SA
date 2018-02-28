@@ -102,8 +102,8 @@ M_b_x = ShearCentreIdealised(B_r_1_6, B_r_10_8, B_y_1_6, B_y_10_8, MOIZZBoom, be
 """
 #print q_b_7
 
-A = np.array([[(((10 * S_st + 2 * S_sptr)/t_sk) + (h / t_sp)) , - (((4 * S_st + 2 * S_spse)/t_sk) + (h / t_sp))],[2*((C_a-h/2)*(h/2)), pi * (h/2)**2 ]])
-B = np.array([[-((2*(q_b_1_6[4] + q_b_1_6[3] + q_b_1_6[2] + q_b_1_6[1] + q_b_1_6[0]) * S_st / t_sk) + (2 * q_b_1_6[5] * S_sptr / t_sk) + q_b_7 * h / t_sp) + (2 * (((q_b_10_8[0] + q_b_10_8[1]) * S_st + q_b_10_8[2] * S_spse) / t_sk) + q_b_7 * h / t_sp) ], [-M_b_x]])
+A = np.array([[((((10 * S_st + 2 * S_sptr)/t_sk) + (h / t_sp))/((C_a-(h/2))*h))  , - ((((4 * S_st + 2 * S_spse)/t_sk) + (h / t_sp))/(pi*(h/2)**2))],[2*((C_a-h/2)*(h/2)), pi * (h/2)**2 ]])
+B = np.array([[-(((2*(q_b_1_6[4] + q_b_1_6[3] + q_b_1_6[2] + q_b_1_6[1] + q_b_1_6[0]) * S_st / t_sk) + (2 * q_b_1_6[5] * S_sptr / t_sk) + q_b_7 * h / t_sp)/((C_a-(h/2))*h)) + ((2 * (((q_b_10_8[0] + q_b_10_8[1]) * S_st + q_b_10_8[2] * S_spse) / t_sk) + q_b_7 * h / t_sp)/(pi*(h/2)**2)) ], [-M_b_x]])
 q_s = np.linalg.solve(A,B)
 
 #print q_s[0]
