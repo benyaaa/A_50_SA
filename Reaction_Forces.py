@@ -47,11 +47,11 @@ u7 = np.mat([-(1./24.)*q*sin(theta)*x_1**4])
 m8 = np.mat([(1./6.)*(x_2-x_1)**3,0.,0.,0.,0.,(1./6.)*sin(theta)*(x_2-(x_2-(x_a/2)))**3, x_2, 1. ,0.,0.])
 u8 = np.mat([(1./24.)*q*cos(theta)*x_2**4])
 
-# Eq 9: defelction d_2_z = 0 (in aileron z-coordinate)
-m9 = np.mat([0.,0.,0.,(1./6.)*(x_2-x_1)**3,(1./6.)*(x_2-x_2)**3,0.,0.,0.,x_2,1.])
+# Eq 9: deflection d_2_z = 0 (in aileron z-coordinate)
+m9 = np.mat([0.,0.,0.,(1./6.)*(x_2-x_1)**3,0.,(1./6.)*cos(theta)*(x_2-(x_2-(x_a/2.)))**3,0.,0.,x_2,1.])
 u9 = np.mat([(-1./24.)*q*sin(theta)*x_2**4])
 
-# Eq 10: defelction d_3 (in aileron y-coordinate)
+# Eq 10: deflection d_3 (in aileron y-coordinate)
 m10 = np.mat([(1./6.)*(x_3-x_1)**3,(1./6.)*(x_3-x_2)**3,0.,0.,0.,(1./6.)*sin(theta)*(x_3-(x_2-(x_a/2)))**3,x_3,1.,0.,0.])
 u10 = np.mat([(1./24.)*q*cos(theta)*x_3**4 + P*sin(theta)*(x_3-(x_2+(x_a/2)))**3+d_3*E*I_zz*cos(theta)])
 

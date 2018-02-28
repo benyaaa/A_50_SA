@@ -342,7 +342,6 @@ def Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, 
 
 
 
-
      
 '''        
         for the_slice in range(1, nslice):
