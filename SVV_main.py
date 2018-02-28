@@ -22,7 +22,8 @@ zzzy = Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoo
 
 
 
-
+print MOIYYBoom(IdealisedStructure,CentroidAirfoil)
+print MOIZZBoom(IdealisedStructure,CentroidAirfoil)
 
 
 

@@ -15,7 +15,7 @@ t_sk = 1.1           #mm, skin thickness
 t_sp = 2.9           #mm, spar thickness
 t_st = 1.2          #mm, stiffener thickness
 h_st = 1.5           #mm, height of stiffener
-w_st = 20            #mm, width of stiffener
+w_st = 20.            #mm, width of stiffener
 n_st = int(17)           #-, number of stiffeners equally spaced along cross-section
 d_1 = 110.3          #mm, vertical displacement hinge 1
 d_3 = 164.2          #mm, vertical displacement hinge 2
@@ -27,24 +27,24 @@ Q = int(0)               # Q = 0,1,3,7,15,31,63,127,255,511 Extra elements betwe
 G = 28.0*10**3      #Shear modulus N/mm^2
 #-------------------Centroid and MOI inputs---------------#
 
-beta_sttr = atan((h/2)/(C_a-(h/2))) #the angle of the stiffeners in the triangular part
-c_ai = 2*sqrt((h/2)**2+(C_a-(h/2))**2)+pi*(h/2) #circumference of airfoil
+beta_sttr = atan((h/2.)/(C_a-(h/2.))) #the angle of the stiffeners in the triangular part
+c_ai = 2.*sqrt((h/2.)**2+(C_a-(h/2.))**2.)+pi*(h/2.) #circumference of airfoil
 S_st = c_ai/n_st #stringer spacing
 st_n = np.arange(1,7)
 
 #centroid triangle (II)
-z_ctr = (C_a-(h/2))/2 #in the middle of the triangular part
-y_ctr = 0 #on the same line as the trailing edge, on the symmetry line
-A_tr = (2*sqrt((h/2)**2+(C_a-(h/2))**2))*t_sk
+z_ctr = (C_a-(h/2.))/2. #in the middle of the triangular part
+y_ctr = 0. #on the same line as the trailing edge, on the symmetry line
+A_tr = (2.*sqrt((h/2.)**2.+(C_a-(h/2.))**2.))*t_sk
 
 #centroid spar (III)
 z_csp = (C_a-(h/2)) #just the chord length minus the semi-circle
-y_csp = 0 #on the symmetry line
+y_csp = 0. #on the symmetry line
 A_sp = h*t_sp
 
 #centroid semi-circle (I)
-z_cse = 2*(h/2)/pi + C_a-(h/2) #according to the internet
-y_cse = 0 #on the symmetry line
+z_cse = 2.*(h/2)/pi + C_a-(h/2) #according to the internet
+y_cse = 0. #on the symmetry line
 A_se = pi*(h/2)*t_sk
 
 #the stiffeners
