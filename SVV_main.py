@@ -19,7 +19,7 @@ M_booms = IdealisedStructure(Q, y_cst, z_cst)
 #zzzy = Numerical_stresses_and_deformations2(zzy, M_booms, E, MOIZZBoom, MOIYYBoom, CentroidAirfoil, IdealisedStructure, G, K, S_st)
 
 
-
+print "centroid" , CentroidIdealisedAirfoil(IdealisedStructure)
 
 
 print MOIYYBoom(IdealisedStructure,CentroidAirfoil)

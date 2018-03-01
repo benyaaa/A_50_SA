@@ -31,6 +31,12 @@ def CentroidAirfoil(z_cst, A_st, z_ctr, A_tr, z_cse, A_se, z_csp, A_sp, n_st): #
     Centroidairfoil = [Zcairfoil,Ycairfoil]
     return Centroidairfoil
 
+def CentroidIdealisedAirfoil(IdealisedStructure):
+    Zcidealisedairfoil = np.sum(IdealisedStructure(Q, y_cst, z_cst)[:,20]*IdealisedStructure(Q, y_cst, z_cst)[:,21])/np.sum(IdealisedStructure(Q, y_cst, z_cst)[:,20])
+    Yzidealisedairfoil = np.sum(IdealisedStructure(Q, y_cst, z_cst)[:,20]*IdealisedStructure(Q, y_cst, z_cst)[:,22])/np.sum(IdealisedStructure(Q, y_cst, z_cst)[:,20])
+    Centroididealisedairfoil = [Zcidealisedairfoil, Yzidealisedairfoil]
+    return Centroididealisedairfoil
+    
 def BetaStringers(beta_sttr, S_st, h): #returns array with angles matching y_cst and z_cst array[1,2,3,4,5,6,17,16,15,14,13,12,8,10,7,11,9]
     beta_st = []
     for i in range(12):
